@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Management System</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+
+        }
+        h2 {
+            color: rgb(201, 38, 38);
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin:10px;
+            border-radius: 5px;
+        }
+        label{
+            color: rgb(110, 225, 225);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: rgb(135, 47, 176);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #totalPrice {
+            font-size: 24px;
+            color: rgb(54, 112, 54);
+            margin-top: 20px;
+        }
+        #totalAmount {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Investment Management System</h2>
+
+    <label for="stocks">Stocks (Quantity):</label><br>
+    <input type="text" id="stocks" placeholder="Enter quantity"><br>
+
+    <label for="bonds">Bonds (Quantity):</label><br>
+    <input type="text" id="bonds" placeholder="Enter quantity"><br>
+
+    <label for="realEstate">Real Estate (Quantity):</label><br>
+    <input type="text" id="realEstate" placeholder="Enter quantity"><br>
+
+    <label for="mutualFunds">Mutual Funds (Quantity):</label><br>
+    <input type="text" id="mutualFunds" placeholder="Enter quantity"><br>
+
+    <button onclick="calculateTotal()">Calculate Investment</button>
+
+    <div id="totalPrice">
+        <p>Investment Total: <span id="totalAmount">Rs. 0</span></p>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            // Investment prices for each type
+            const stockPrice = 500;
+            const bondPrice = 300;
+            const realEstatePrice = 1000;
+            const mutualFundsPrice = 400;
+
+            // Fetch quantities from the input fields
+            const stocks = parseInt(document.getElementById('stocks').value) || 0;
+            const bonds = parseInt(document.getElementById('bonds').value) || 0;
+            const realEstate = parseInt(document.getElementById('realEstate').value) || 0;
+            const mutualFunds = parseInt(document.getElementById('mutualFunds').value) || 0;
+
+            // Calculate the total price
+            const total = (stocks * stockPrice) + (bonds * bondPrice) + (realEstate * realEstatePrice) + (mutualFunds * mutualFundsPrice);
+
+            // Update the total price in the HTML
+            document.getElementById('totalAmount').innerText = `Rs. ${total}`;
+        }
+    </script>
+</body>
+</html>
